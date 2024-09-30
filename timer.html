@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймер</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f0f4c3; }
+        #timer { font-size: 50px; }
+    </style>
+</head>
+<body>
+    <h1>Обратный отсчет</h1>
+    <div id="timer">10</div>
+    <script>
+        let timeLeft = 10;
+        const timerElement = document.getElementById('timer');
+
+        function countdown() {
+            if (timeLeft <= 0) {
+                clearInterval(timerId);
+                timerElement.textContent = 'Время вышло!';
+            } else {
+                timerElement.textContent = timeLeft;
+                timeLeft--;
+            }
+        }
+
+        const timerId = setInterval(countdown, 1000);
+    </script>
+</body>
+</html>
